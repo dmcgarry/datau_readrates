@@ -81,7 +81,7 @@ def applyCut(predReg,predClass,cut):
 ###############
 ## Prep Data ##
 ###############
-def prepData(dir="/na/home/dmcgarry/rpkaggle/comp1_readRates/data/"):
+def prepData(dir="/na/home/dmcgarry/datau"):
 	train = pd.read_csv(dir+"train.csv")
 	test = pd.read_csv(dir+"test.csv")
 	#rollup redactions
@@ -360,7 +360,7 @@ def main():
 	test['finalPred'] = lm.predict(test[['rfPred','gbmPred']])
 	test['finalPred'][test['finalPred'] < 0] = 0
 	test['finalPred'][test['finalPred'] > 1] = 1
-	test[['id','finalPred']].to_csv("/na/home/dmcgarry/rpkaggle/comp1_readRates/secretsauce.csv")
+	test[['id','finalPred']].to_csv("/na/home/dmcgarry/datau/secretsauce.csv")
 
 # run everything when calling script from CLI
 if __name__ == "__main__":
